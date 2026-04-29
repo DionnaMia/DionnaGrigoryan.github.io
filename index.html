@@ -64,6 +64,37 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* NAV MENU */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+
+        ul li {
+            float: left;
+        }
+
+        ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            background-color: #111111;
+        }
+
+        nav::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
     </style>
 </head>
 
@@ -73,6 +104,16 @@
     <img src="logo.jpg" class="logo" alt="Logo">
     <h1>Welcome to My Portfolio</h1>
 </header>
+
+<!-- NAV BAR ADDED HERE -->
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
 
 <div class="content">
     <h2>Introduction</h2>
@@ -97,8 +138,8 @@
     <p>© All Rights Reserved 2012</p>
     <p>
         <a href="https://github.com/DionnaMia">GitHub</a>
-        <a href="Midterm | Final">Projects</a>
-        <a href="dionnamia4@gmail.com | 3478664466">Contact</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
     </p>
 </footer>
 
