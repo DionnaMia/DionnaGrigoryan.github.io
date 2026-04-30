@@ -1,14 +1,11 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
-    color: #333;
-    cursor: crosshair;
 }
 
 header {
-    text-align: center;
+        text-align: center;
     padding: 40px;
     background: white;
 }
@@ -21,65 +18,19 @@ h1 {
     width: 150px;
 }
 
-/* NAV */
-ul {
-    list-style-type: none;
-    margin: 0;
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-ul li {
-    float: left;
-}
-
-ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-ul li a:hover {
-    background-color: #111;
-}
-
-
-.content {
-    padding: 40px;
-}
-
-.bio {
-    font-style: italic;
-    margin-top: 10px;
-}
-
-
-footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-footer a:hover {
-    text-decoration: underline;
 }
 
 .slider {
     position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: 40px auto;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
     overflow: hidden;
     border-radius: 10px;
 }
@@ -88,9 +39,12 @@ footer a:hover {
     position: relative;
 }
 
+/* images + control size */
 .slide {
     width: 100%;
-    display: none;
+    height: 350px;       
+    object-fit: cover;    
+    display: none;        
 }
 
 .slide.active {
@@ -113,6 +67,11 @@ footer a:hover {
 .prev { left: 10px; }
 .next { right: 10px; }
 
-.prev:hover, .next:hover {
-    background: rgba(0,0,0,0.8);
+.content {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
 }
