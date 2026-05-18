@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Invoice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="invoice-container">
+
+        <header class="invoice-header">
+            <div class="company-info">
+                <h1>Company Name</h1>
+                <p>Address, City, ST, ZIP Code</p>
+                <p>Phone Number | Fax Number</p>
+            </div>
+        </header>
+
+        <section class="invoice-meta">
+            <h2>Invoice # 100</h2>
+            <p>
+                Date:
+                <span id="invoice-date" contenteditable="true">Enter Invoice Date</span>
+            </p>
+        </section>
+
+        <section class="billing-details">
+            <div class="bill-to">
+                <h3>Bill To</h3>
+                <p contenteditable="true" id="customer-info">
+                    Name | Company<br>
+                    Address, City, ST, ZIP Code<br>
+                    Phone
+                </p>
+            </div>
+
+            <div class="for-project">
+                <h3>For</h3>
+                <p contenteditable="true" id="project-desc">
+                    Product Description
+                </p>
+            </div>
+        </section>
+
+        <table class="item-table">
+            <thead>
+                <tr>
+                    <th>Item Description</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td contenteditable="true"> </td>
+                    <td contenteditable="true" class="amount">0</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true"> </td>
+                    <td contenteditable="true" class="amount">0</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true"> </td>
+                    <td contenteditable="true" class="amount">0</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true"> </td>
+                    <td contenteditable="true" class="amount">0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <section class="totals-area">
+            <div class="totals-grid">
+
+                <span>Subtotal</span>
+                <div class="amount-box" id="subtotal">$0.00</div>
+
+                <span>Tax Rate (%)</span>
+                <div class="amount-box" contenteditable="true" id="tax-rate">0</div>
+
+                <span>Other Costs</span>
+                <div class="amount-box" contenteditable="true" id="other-costs">0</div>
+
+                <span class="total-label">Total Cost</span>
+                <div class="amount-box total-box" id="total">$0.00</div>
+
+            </div>
+        </section>
+
+        <footer class="invoice-footer">
+            <p>Make all checks payable to Company Name</p>
+            <p>If you have any questions concerning this invoice, use the following contact information:</p>
+            <p>Contact Name, Phone Number, Email</p>
+            <p>Thank you for your business!</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function parseNumber(value) {
+            return parseFloat(value.replace(/[^0-9.-]/g, "")) || 0;
+        }
+
+        function calculateInvoice() {
+            // SUBTOTAL
+            let amountCells = document.querySelectorAll(".amount");
+            let subtotal = 0;
+
+            amountCells.forEach(cell => {
+                subtotal += parseNumber(cell.textContent);
+            });
+
+            // TAX
+            let taxRate = parseNumber(document.getElementById("tax-rate").textContent);
+            let taxAmount = subtotal * (taxRate / 100);
+
+            // OTHER COSTS
+            let otherCosts = parseNumber(document.getElementById("other-costs").textContent);
+
+            // TOTAL
+            let total = subtotal + taxAmount + otherCosts;
+
+            // DISPLAY
+            document.getElementById("subtotal").textContent = "$" + subtotal.toFixed(2);
+            document.getElementById("total").textContent = "$" + total.toFixed(2);
+        }
+
+        
+        document.addEventListener("input", calculateInvoice);
+
+        
+        calculateInvoice();
+    </script>
+
+</body>
+</html>
