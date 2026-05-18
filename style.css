@@ -42,6 +42,44 @@ nav ul li a:hover {
     background-color: #111111;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333333;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    float: none;
+    width: 100%;
+}
+
+.dropdown-content li a {
+    color: white !important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content li a:hover {
+    background-color: #111111 !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 .slider {
     position: relative;
     width: 80%;
