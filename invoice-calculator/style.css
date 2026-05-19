@@ -1,0 +1,88 @@
+:root {
+    --primary-blue: #1a4580;
+    --light-blue-bg: #f4f7f9;
+    --border-color: #d1d9e0;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    margin: 0;
+}
+
+.invoice-container {
+    background-color: white;
+    width: 800px;
+    padding: 60px;
+    border: 1px solid #ccc;
+    min-height: 1000px;
+}
+
+.invoice-header {
+    background: linear-gradient(to right, #002b5c, #4a90e2);
+    color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+#company-name {
+    font-family: Georgia, serif;
+    color: white;
+    margin: 0;
+    font-size: 28pt;
+}
+
+.invoice-header p {
+    margin: 5px 0;
+    font-size: 10pt;
+}
+
+#invoice-number {
+    font-family: Georgia, serif;
+    color: var(--primary-blue);
+}
+
+#bill-to,
+#for-title {
+    font-family: Georgia, serif;
+    color: var(--primary-blue);
+}
+
+.table-header {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 10px;
+    border: 1px solid var(--primary-blue);
+    font-family: Georgia, serif;
+}
+
+td {
+    border: 1px solid var(--primary-blue);
+    height: 35px;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f5f9;
+}
+
+.amount-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.total-box {
+    background-color: var(--primary-blue);
+    color: white;
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+.invoice-footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
