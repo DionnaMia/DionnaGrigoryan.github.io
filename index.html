@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dionna Grigoryan | Web Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
@@ -13,19 +13,27 @@
     <h1>Welcome to My Portfolio</h1>
 </header>
 
-<!-- NAV (restored simple version) -->
 <nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <div class="nav-container">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Projects</a>
+                <ul class="dropdown-content">
+                    <li><a href="invoice-calculator/index.html">Invoice Homework</a></li>
+                    <li><a href="MPG-calculator/index.html">MPG Homework</a></li>
+                    <li><a href="projects.html">All Projects</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 </nav>
 
-<!-- SLIDER (FIXED PATHS) -->
 <div class="slider">
-
     <div class="slides">
         <img src="image1.jpg" class="slide active" alt="Slide 1">
         <img src="image2.jpg" class="slide" alt="Slide 2">
@@ -35,10 +43,8 @@
 
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
-
 </div>
 
-<!-- CONTENT -->
 <div class="content">
     <h2>Introduction</h2>
     <p>
@@ -57,17 +63,10 @@
     <p>To be done!</p>
 </div>
 
-<!-- FOOTER -->
 <footer>
-    <p>© All Rights Reserved 2026</p>
-    <p>
-        <a href="https://github.com/DionnaMia">GitHub</a>
-        <a href="#">Projects</a>
-        <a href="#">Contact</a>
-    </p>
+    <p>© Dionna Grigoryan 2026</p>
 </footer>
 
-<!-- SLIDER SCRIPT -->
 <script>
 let slides = document.querySelectorAll(".slide");
 let index = 0;
@@ -77,19 +76,16 @@ function showSlide(i) {
     slides[i].classList.add("active");
 }
 
-// next
 document.querySelector(".next").addEventListener("click", () => {
     index = (index + 1) % slides.length;
     showSlide(index);
 });
 
-// prev
 document.querySelector(".prev").addEventListener("click", () => {
     index = (index - 1 + slides.length) % slides.length;
     showSlide(index);
 });
 
-// autoplay
 setInterval(() => {
     index = (index + 1) % slides.length;
     showSlide(index);
