@@ -20,7 +20,6 @@ body {
     padding-top: 110px;
 }
 
-/* Nav Bar Layout Fixes */
 .navbar {
     background-color: #0b0e14;
     position: fixed;
@@ -30,13 +29,11 @@ body {
     height: 70px;
     z-index: 1000;
     border-bottom: 1px solid #161b22;
-    display: flex;
-    align-items: center;
 }
 
 .nav-container {
-    width: 100%;
     max-width: 1400px;
+    height: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -50,24 +47,20 @@ body {
 }
 
 .brand-name {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: -0.5px;
     color: #ffffff;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
+    background: linear-gradient(45deg, #ffffff, #a3b3cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .nav-right ul {
     list-style: none;
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    height: 100%;
 }
 
 .nav-right ul li {
@@ -77,7 +70,6 @@ body {
     height: 70px;
 }
 
-/* Matched Font styles, weights and layout thicknesses */
 .nav-right ul li a {
     display: flex;
     align-items: center;
@@ -86,8 +78,7 @@ body {
     color: #e2e8f0;
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 600; 
-    letter-spacing: 0.2px;
+    font-weight: 500;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -107,7 +98,6 @@ body {
     color: #94a3b8;
 }
 
-/* Dropdown Menu styling matches */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -119,30 +109,22 @@ body {
     border: 1px solid #161b22;
     border-radius: 0 0 4px 4px;
     flex-direction: column;
-    padding: 0;
 }
 
 .dropdown-content li {
     width: 100%;
-    height: auto;
+    height: auto !important;
 }
 
 .dropdown-content li a {
     width: 100%;
     padding: 14px 20px;
     color: #e2e8f0;
-    font-weight: 600;
     border-bottom: 1px solid #161b22;
-    display: block;
 }
 
 .dropdown-content li:last-child a {
     border-bottom: none;
-}
-
-.dropdown-content li.active-link a {
-    background-color: #1c2331;
-    color: #ffffff;
 }
 
 .dropdown-content li a:hover {
@@ -153,7 +135,6 @@ body {
     display: flex;
 }
 
-/* Invoice Container Design Layer */
 .invoice-container {
     background-color: white;
     width: 100%;
