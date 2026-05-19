@@ -125,7 +125,7 @@ body {
     flex: 1;
     max-width: 900px;
     width: 100%;
-    margin: 40px auto;
+    margin: 20px auto;
     padding: 40px;
     background: #0b0e14;
     border-radius: 6px;
@@ -240,7 +240,7 @@ footer {
     color: #94a3b8;
     text-align: center;
     padding: 30px;
-    margin-top: auto; 
+    margin-top: 40px; 
 }
 
 footer p {

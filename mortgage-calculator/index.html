@@ -23,7 +23,7 @@
                     <ul class="dropdown-content">
                         <li><a href="../invoice-calculator/index.html">Invoice Calculator</a></li>
                         <li><a href="../MPG-calculator/index.html">MPG Calculator</a></li>
-                        <li class="active-link"><a href="index.html">Invoice Calculator</a></li>
+                        <li><a href="index.html">Mortgage Calculator</a></li>
                     </ul>
                 </li>
             </ul>
@@ -56,6 +56,8 @@
                         <label for="years">Years:</label>
                         <select id="years" name="years">
                             <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
                             <option value="30">30</option>
                         </select>
 
@@ -74,6 +76,28 @@
 <footer>
     <p>© Dionna Grigoryan 2026</p>
 </footer>
+
+<script>
+document.getElementById('calculateBtn').addEventListener('click', function() {
+    const principal = parseFloat(document.getElementById('mortgage').value);
+    const annualInterest = parseFloat(document.getElementById('interest').value);
+    const years = parseInt(document.getElementById('years').value);
+    const paymentField = document.getElementById('payment');
+
+    if (isNaN(principal) || isNaN(annualInterest) || principal <= 0 || annualInterest <= 0) {
+        paymentField.value = "Invalid Input";
+        return;
+    }
+
+    const monthlyInterest = (annualInterest / 100) / 12;
+    const numberOfPayments = years * 12;
+
+    const monthlyPayment = (principal * monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments)) / 
+                           (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+
+    paymentField.value = "$" + monthlyPayment.toFixed(2);
+});
+</script>
 
 </body>
 </html>
