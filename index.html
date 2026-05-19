@@ -8,28 +8,28 @@
 </head>
 <body>
 
-<header>
-    <img src="logo.jpg" class="logo" alt="Logo">
-    <h1>Welcome to My Portfolio</h1>
-</header>
-
-<nav>
+<nav class="navbar">
     <div class="nav-container">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Projects</a>
-                <ul class="dropdown-content">
-                    <li><a href="invoice-calculator/index.html">Invoice Homework</a></li>
-                    <li><a href="MPG-calculator/index.html">MPG Homework</a></li>
-                    <li><a href="projects.html">All Projects</a></li>
-                </ul>
-            </li>
-            
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="nav-left">
+            <img src="logo.jpg" class="logo" alt="Logo">
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li class="active-link"><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Submit Review</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Other Projects <span class="arrow">&#9662;</span></a>
+                    <ul class="dropdown-content">
+                        <li><a href="invoice-calculator/index.html">Invoice Homework</a></li>
+                        <li><a href="MPG-calculator/index.html">MPG Homework</a></li>
+                        <li><a href="projects.html">All Projects</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
