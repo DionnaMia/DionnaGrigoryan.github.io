@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Mortgage Calculator | Dionna Grigoryan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-left">
+            <span class="brand-name">DionnaGrigoryan</span>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li class="dropdown active-link">
+                    <a href="#" class="dropbtn">Projects <span class="arrow">&#9662;</span></a>
+                    <ul class="dropdown-content">
+                        <li><a href="../invoice-calculator/index.html">Invoice Calculator</a></li>
+                        <li><a href="../MPG-calculator/index.html">MPG Calculator</a></li>
+                        <li><a href="index.html">Mortgage Calculator</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <h1>Home Mortgage Calculator</h1>
+
+    <table class="calculator-table">
+        <tr>
+            <td>
+                <p class="instruction-text">
+                    To use the Home Mortgage Calculator enter the amount of 
+                    the mortgage, the interest of the loan, and the number of years. 
+                    Then click on the "Calculate" button to see an estimate of your 
+                    monthly payment.
+                </p>
+            </td>
+            <td class="form-cell">
+                <form id="mortgageForm">
+                    <div class="form-grid">
+                        <label for="mortgage">Mortgage:</label>
+                        <input type="text" id="mortgage" name="mortgage">
+
+                        <label for="interest">Interest (e.g., 7.9):</label>
+                        <input type="text" id="interest" name="interest">
+
+                        <label for="years">Years:</label>
+                        <select id="years" name="years">
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                        </select>
+
+                        <button type="button" id="calculateBtn" class="calc-btn">Calculate</button>
+                        <button type="reset" class="reset-btn">Reset</button>
+
+                        <label for="payment" class="payment-label">Your monthly payment:</label>
+                        <input type="text" id="payment" name="payment" readonly>
+                    </div>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<footer>
+    <p>© Dionna Grigoryan 2026</p>
+</footer>
+
+</body>
+</html>
