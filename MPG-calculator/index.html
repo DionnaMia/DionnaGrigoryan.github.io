@@ -24,7 +24,10 @@
             background-color: #000000;
             padding: 20px;
             padding-top: 110px;
-            scrollbar-gutter: stable; /* Fixes the nav bar from shifting when scrollbars appear */
+            scrollbar-gutter: stable;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .navbar {
@@ -143,11 +146,12 @@
         }
 
         .calculator {
+            text-align: center;
             background: white;
             padding: 40px 20px;
             border-radius: 10px;
             width: 340px;
-            margin: auto;
+            margin: auto auto;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             color: #333;
         }
@@ -156,13 +160,16 @@
             margin-bottom: 15px;
         }
 
-        img {
+        .calculator img {
             width: 80px;
             margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         input {
-            width: 90%;
+            width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -170,6 +177,7 @@
         }
 
         button {
+            width: 100%;
             padding: 10px 20px;
             background-color: #007BFF;
             color: white;
@@ -177,6 +185,7 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: 600;
+            margin-top: 5px;
         }
 
         button:hover {
@@ -186,6 +195,14 @@
         #result {
             margin-top: 15px;
             font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #718096;
+            font-size: 0.9rem;
+            margin-top: auto;
         }
     </style>
 </head>
@@ -228,12 +245,27 @@
         <div id="result"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function calculateMPG() {
+            const miles = parseFloat(document.getElementById('miles').value);
+            const gallons = parseFloat(document.getElementById('gallons').value);
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(miles) || isNaN(gallons) || gallons <= 0 || miles < 0) {
+                resultDiv.style.color = '#dc3545';
+                resultDiv.innerText = "Please enter valid, positive numbers.";
+                return;
+            }
+
+            const mpg = (miles / gallons).toFixed(2);
+            resultDiv.style.color = '#28a745';
+            resultDiv.innerText = `${mpg} MPG`;
+        }
+    </script>
+
+    <footer>
+        <p>© Dionna Grigoryan 2026</p>
+    </footer>
 
 </body>
-
-<footer>
-    <p>© Dionna Grigoryan 2026</p>
-</footer>
-
 </html>
