@@ -1,3 +1,9 @@
+:root {
+    --primary-blue: #1a4580;
+    --light-blue-bg: #f4f7f9;
+    --border-color: #d1d9e0;
+}
+
 * {
     margin: 0;
     padding: 0;
