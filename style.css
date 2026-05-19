@@ -196,18 +196,10 @@ body {
     padding-bottom: 8px;
 }
 
-.content h2:not(:first-child) {
-    margin-top: 40px;
-}
-
 .content p {
-    margin-bottom: 20px;
     color: #94a3b8;
-}
-
-.bio {
-    font-style: italic;
-    color: #cbd5e1;
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
 footer {
@@ -220,6 +212,5 @@ footer {
 }
 
 footer p {
-    margin-bottom: 12px;
     font-size: 0.9rem;
 }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Invoice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="invoice-container">
+
+        <header class="invoice-header">
+            <div class="company-info">
+                <h1 id="company-name">Company Name</h1>
+                <p>Address, City, ST, ZIP Code</p>
+                <p>Phone Number | Fax Number</p>
+            </div>
+        </header>
+
+        <section class="invoice-meta">
+            <h2 id="invoice-number">Invoice # 100</h2>
+            <p>Date: <span id="invoice-date" contenteditable="true">Enter Invoice Date</span></p>
+        </section>
+
+        <section class="billing-details">
+            <div class="bill-to">
+                <h3 id="bill-to">Bill To</h3>
+                <p contenteditable="true">
+                    Name | Company<br>
+                    Address, City, ST, ZIP Code<br>
+                    Phone
+                </p>
+            </div>
+
+            <div class="for-project">
+                <h3 id="for-title">For</h3>
+                <p contenteditable="true">
+                    Product Description
+                </p>
+            </div>
+        </section>
+
+        <table class="item-table">
+            <thead>
+                <tr>
+                    <th class="table-header">Item Description</th>
+                    <th class="table-header">Amount</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr><td contenteditable="true"></td><td contenteditable="true" class="amount">0</td></tr>
+                <tr><td contenteditable="true"></td><td contenteditable="true" class="amount">0</td></tr>
+                <tr><td contenteditable="true"></td><td contenteditable="true" class="amount">0</td></tr>
+                <tr><td contenteditable="true"></td><td contenteditable="true" class="amount">0</td></tr>
+            </tbody>
+        </table>
+
+        <section class="totals-area">
+            <div class="totals-grid">
+                <span>Subtotal</span>
+                <div class="amount-box" id="subtotal">$0.00</div>
+
+                <span>Tax Rate (%)</span>
+                <div class="amount-box" contenteditable="true" id="tax-rate">0</div>
+
+                <span>Other Costs</span>
+                <div class="amount-box" contenteditable="true" id="other-costs">0</div>
+
+                <span class="total-label">Total Cost</span>
+                <div class="amount-box total-box" id="total">$0.00</div>
+            </div>
+        </section>
+
+        <footer class="invoice-footer">
+            <p>Make all checks payable to Company Name</p>
+            <p>Contact Name, Phone Number, Email</p>
+            <p>Thank you for your business!</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function parseNumber(value) {
+            return parseFloat(value.replace(/[^0-9.-]/g, "")) || 0;
+        }
+
+        function calculateInvoice() {
+            let subtotal = 0;
+
+            document.querySelectorAll(".amount").forEach(cell => {
+                subtotal += parseNumber(cell.textContent);
+            });
+
+            let taxRate = parseNumber(document.getElementById("tax-rate").textContent);
+            let otherCosts = parseNumber(document.getElementById("other-costs").textContent);
+
+            let tax = subtotal * (taxRate / 100);
+            let total = subtotal + tax + otherCosts;
+
+            document.getElementById("subtotal").textContent = "$" + subtotal.toFixed(2);
+            document.getElementById("total").textContent = "$" + total.toFixed(2);
+        }
+
+        document.addEventListener("input", calculateInvoice);
+        calculateInvoice();
+    </script>
+
+</body>
+</html>
