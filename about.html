@@ -4,41 +4,273 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-blue: #1a4580;
+            --light-blue-bg: #f4f7f9;
+            --border-color: #d1d9e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background-color: #000000;
+            padding-top: 70px;
+            scrollbar-gutter: stable;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #0b0e14;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 1000;
+            border-bottom: 1px solid #161b22;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            background: linear-gradient(45deg, #ffffff, #a3b3cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-right ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-right ul li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-right ul li a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 20px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .nav-right ul li a:hover {
+            color: #ffffff;
+            background-color: #161b22;
+        }
+
+        .nav-right ul li.active-link a {
+            background-color: #1c2331;
+            color: #ffffff;
+        }
+
+        .arrow {
+            font-size: 0.75rem;
+            margin-left: 6px;
+            color: #94a3b8;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            background-color: #0b0e14;
+            min-width: 200px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
+            border: 1px solid #161b22;
+            border-radius: 0 0 4px 4px;
+            flex-direction: column;
+        }
+
+        .dropdown-content li {
+            width: 100%;
+            height: auto !important;
+        }
+
+        .dropdown-content li a {
+            width: 100%;
+            padding: 14px 20px;
+            color: #e2e8f0;
+            border-bottom: 1px solid #161b22;
+        }
+
+        .dropdown-content li:last-child a {
+            border-bottom: none;
+        }
+
+        .dropdown-content li a:hover {
+            background-color: #161b22;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .about-layout {
+            display: flex;
+            flex: 1;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 60px 30px;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .about-text-side {
+            flex: 1.2;
+        }
+
+        .about-text-side h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(45deg, #ffffff, #a3b3cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-text-side p {
+            font-size: 1.05rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .about-text-side a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .about-text-side a:hover {
+            text-decoration: underline;
+        }
+
+        .about-image-side {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image-side img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid #161b22;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 900px) {
+            .about-layout {
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 40px;
+            }
+            .about-image-side {
+                width: 100%;
+                order: 2;
+            }
+            .about-text-side {
+                order: 1;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #718096;
+            font-size: 0.9rem;
+            background-color: #0b0e14;
+            border-top: 1px solid #161b22;
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="nav-left">
-            <span class="brand-name">DionnaGrigoryan</span>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <span class="brand-name">DionnaGrigoryan</span>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active-link"><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Projects <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-content">
+                            <li><a href="invoice-calculator/index.html">Invoice Calculator</a></li>
+                            <li><a href="MPG-calculator/index.html">MPG Calculator</a></li>
+                            <li><a href="../mortgage-calculator/index.html">Mortgage Calculator</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="nav-right">
-            <ul>
-                <li class="active-link"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Projects <span class="arrow">&#9662;</span></a>
-                    <ul class="dropdown-content">
-                        <li><a href="invoice-calculator/index.html">Invoice Calculator</a></li>
-                        <li><a href="MPG-calculator/index.html">MPG Calculator</a></li>
-                        <li><a href="../mortgage-calculator/index.html">Mortgage Calculator</a></li>
-                    </ul>
-                </li>
-            </ul>
+    </nav>
+
+    <div class="about-layout">
+        <div class="about-text-side">
+            <h1>What kind of student I am</h1>
+            <p>I'm currently a student at CUNY College of Staten Island, graduating in Spring 2026 with a Bachelors in Computer Science!</p>
+            
+            <p>I'm an aspiring UX Designer who wants to prioritize crafting memorable experiences for people of all backgrounds with unique mechanics. Creating experiences are nothing without empathy and emotion. They are what push for a strong emphasis on user-centered designs and high-quality experiences. I look forward to working with a team that strives to learn their audience that we are desighning for, so we can become efficient problem solvers who can adjust and listen to their audience. </p>
+            
+            <p>In the end game, I would love to pursue something in video games and digital experiences. I think it's a very-well boomign industry that has the most powerful form of storytelling, because not only do they narrate, but they also entertain to their own appropriate genre. With such precision in these experiences, they have the power to make people feel seen, inspired, and connected. Which is exactly why I would love to take part and make way in similar experiences that shaped mine growing up!</p>
+        
+            <p>Outside of my pursued studies, I also love to travel the world, hike and adore nature, and draw away while new ideas hit me!</p>
+        </div>
+        
+        <div class="about-image-side">
+            <img src="myphoto.jpg" alt="Dionna Grigoryan">
         </div>
     </div>
-</nav>
 
-<div class="content">
-    <h2>About Me!</h2>
-    <p>
-        Hi this is my about me!
-        *insert photo etc*
-    </p>
-</div>
+    <footer>
+        <p>© Dionna Grigoryan 2026</p>
+    </footer>
 
-<footer>
-    <p>© Dionna Grigoryan 2026</p>
-</footer>
+</body>
+</html>
