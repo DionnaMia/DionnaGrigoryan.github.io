@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPG Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: hsl(0, 0%, 33%);
+            text-align: center;
+            padding: 50px;
+            padding-top: 120px;
+        }
+
+        .navbar {
+            background-color: #0b0e14;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 1000;
+            border-bottom: 1px solid #161b22;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-right ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-right ul li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-right ul li a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 20px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600; 
+            letter-spacing: 0.2px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .nav-right ul li a:hover {
+            color: #ffffff;
+            background-color: #161b22;
+        }
+
+        .arrow {
+            font-size: 0.75rem;
+            margin-left: 6px;
+            color: #94a3b8;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            background-color: #0b0e14;
+            min-width: 200px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
+            border: 1px solid #161b22;
+            border-radius: 0 0 4px 4px;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .dropdown-content li {
+            width: 100%;
+            height: auto;
+        }
+
+        .dropdown-content li a {
+            width: 100%;
+            padding: 14px 20px;
+            color: #e2e8f0;
+            font-weight: 600;
+            border-bottom: 1px solid #161b22;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content li:last-child a {
+            border-bottom: none;
+        }
+
+        .dropdown-content li.active-link a {
+            background-color: #1c2331;
+            color: #ffffff;
+        }
+
+        .dropdown-content li a:hover {
+            background-color: #161b22;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .calculator {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            width: 340px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: #333;
+        }
+
+        .calculator h2 {
+            margin-bottom: 15px;
+        }
+
+        img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <span class="brand-name">DionnaGrigoryan</span>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Other Projects <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-content">
+                            <li><a href="../invoice-calculator/index.html">Invoice Homework</a></li>
+                            <li class="active-link"><a href="index.html">MPG Homework</a></li>
+                            <li><a href="../projects.html">All Projects</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="calculator">
+        <img src="calculator.png" alt="Calculator Logo">
+
+        <h2>MPG Calculator</h2>
+
+        <input type="number" id="miles" placeholder="Miles Traveled">
+
+        <input type="number" id="gallons" placeholder="Gallons Used">
+
+        <button onclick="calculateMPG()">Calculate</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
