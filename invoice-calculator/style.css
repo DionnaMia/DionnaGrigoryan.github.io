@@ -11,12 +11,11 @@
 }
 
 body {
-    background-color: #000000;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
+    line-height: 1.6;
+    color: #fff;
+    background-color: #000000;
+    padding: 20px;
     padding-top: 110px;
 }
 
@@ -143,6 +142,7 @@ body {
     border: 1px solid #161b22;
     min-height: 1000px;
     color: #333;
+    margin: 0 auto;
 }
 
 .invoice-header {
